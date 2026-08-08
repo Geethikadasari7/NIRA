@@ -24,7 +24,7 @@ Menstrual-health concerns are often accompanied by overwhelming uncertainty. Whe
 
 Traditional symptom checkers spit out terrifying medical jargon or misdiagnose, causing anxiety. **NIRA focuses on the uncertainty surrounding the symptom—not on diagnosing the symptom itself.**
 
----
+
 
 ## 💡 Our Solution: The NIRA Navigation Layer
 
@@ -50,7 +50,6 @@ NIRA acts as a **navigation layer** between a user's health uncertainty and prof
 - 📊 **Symptom Tracking Guide:** Highlights exactly what patterns the user should track before their appointment.
 - 🌐 **Multilingual & Accessible:** Supports English, Simple English, and Regional Languages (e.g., Telugu) for maximum inclusivity.
 
----
 
 ## 🏗️ Architecture & GenAI Workflow
 
@@ -88,7 +87,6 @@ graph TD
     E -.-> H
     F -.-> H
 ```
----
 
 ## 📜 Declaration of Originality
 
