@@ -56,54 +56,34 @@ NIRA acts as a **navigation layer** between a user's health uncertainty and prof
 
 NIRA is built iteratively on **AWS PartyRock**, utilizing prompt-chaining to ensure safety, accuracy, and clear outputs.
 
-*(Upload your generated architecture diagram to your repo and update the image path below)*
-<div align="center">
-  <img src="./docs/architecture.png" alt="NIRA Architecture Diagram" width="800"/>
-</div>
+```mermaid
+graph TD
+    %% Styling
+    classDef user fill:#e1bee7,stroke:#8e24aa,stroke-width:2px,color:black
+    classDef ai fill:#bbdefb,stroke:#1976d2,stroke-width:2px,color:black
+    classDef guard fill:#ffcc80,stroke:#f57c00,stroke-width:2px,color:black
+    classDef output fill:#c8e6c9,stroke:#388e3c,stroke-width:2px,color:black
 
-### How Information Flows:
-1. **User Input:** User shares minimum necessary symptoms/concerns (Text/Voice).
-2. **GenAI Processing Layer:** AWS GenAI synthesizes the input against medical knowledge guidelines.
-3. **Safety Guardrails:** Strict instructions prevent the AI from diagnosing or prescribing. 
-4. **Actionable Output:** 
-   - Plain-Language Explanation
-   - Next-Step Classification
-   - Doctor Consultation Card
+    %% Nodes
+    A[👤 User Input: Minimum Necessary Information]:::user
+    B[🧠 AWS PartyRock: GenAI Processing]:::ai
+    C{🛡️ Safety Guardrails & Prompt Layer}:::guard
+    
+    D[📖 Plain-Language Explanation]:::output
+    E[🧭 Next-Step Classification]:::output
+    F[📝 Doctor Consultation Card]:::output
+    G[🚨 Standard Medical Disclaimer]:::guard
 
----
-
-## 💼 Business Model & Future Scalability
-
-While the current MVP focuses on the core AI navigation, NIRA is designed to scale into a self-sustaining Women's Health Platform:
-
-- 🛍️ **NIRA MedivAI Store:** A curated marketplace for trusted women's wellness, hygiene, and menstrual health products.
-- 👩‍⚕️ **Doctor Appointments:** Seamless discovery and direct appointment booking with verified gynecologists and specialists.
-- ⭐ **NIRA+ Premium:** Advanced long-term cycle tracking, personalized insights, and priority tele-consultations.
-- 🤝 **B2B Partnerships:** Collaborations with rural healthcare NGOs, clinics, and women's-health initiatives.
-
----
-
-## 🛡️ Responsible AI & Safety
-
-NIRA is engineered with strict healthcare safety boundaries:
-- **Zero Diagnosis:** NIRA explicitly states it is not a doctor.
-- **Data Privacy:** Minimum-information approach; no unnecessary sensitive data is collected.
-- **Human Oversight:** AI-generated guidance is purely informational. All medical decisions remain with qualified healthcare professionals.
-
----
-
-## 🚀 Live Prototype
-
-Try the working MVP built for the hackathon:
-🔗 **[Launch NIRA on AWS PartyRock](https://partyrock.aws/u/geethikadasari/rVxVouJms7/NIRA-Women's-Menstrual-Health-Navigator/)**
-
----
-
-## 👩‍💻 Team Daredevils
-
-Built with ❤️ for the **Aspire For Her × Logitech: Women Who Master Hackathon 2026**.
-
-**Project Lead:** Geethika Dasari  
-**Vision:** *Less uncertainty. More understanding. Better next steps.*
-
-> **Disclaimer:** NIRA is an AI-powered health-navigation prototype intended to support understanding and preparation. It is not a medical diagnostic tool and should not be used as a substitute for professional medical advice, diagnosis, or treatment.
+    %% Flow
+    A -->|Text/Voice Input| B
+    B --> C
+    
+    C -->|Safe / Informational| D
+    C -->|Safe / Informational| E
+    C -->|Safe / Informational| F
+    
+    C -->|Diagnostic Query Detected| G
+    
+    D -.-> H((Actionable Understanding))
+    E -.-> H
+    F -.-> H
