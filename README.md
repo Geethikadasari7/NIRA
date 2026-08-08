@@ -87,3 +87,11 @@ graph TD
     D -.-> H((Actionable Understanding))
     E -.-> H
     F -.-> H
+```
+---
+
+## 📜 Declaration of Originality
+
+I, **Geethika Dasari**, hereby declare that this project, **NIRA**, submitted for the Aspire For Her × Logitech Women Who Master Hackathon 2026, is entirely my own original work. All application logic, prompts, presentation materials, and documentation were completed individually during the official hackathon window, and no unauthorized assistance was used.
+
+📧 **Contact:** [geethikaadasari@gmail.com](mailto:geethikaadasari@gmail.com)
